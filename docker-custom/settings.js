@@ -25,13 +25,13 @@ module.exports = {
     },
     header: {
       title: "VFlow",
-      image: "/data/logo.svg", // or null to remove image
+      image: "/data/logo.png", // or null to remove image
       url: "http://www.vioneta.com", // optional url to make the header text/image a link to this url
     },
     deployButton: {
       type: "simple",
       label: "run",
-      icon: "/data/logo.svg", // or null to remove image
+      icon: "/data/run.png", // or null to remove image
     },
     menu: {
       // Hide unwanted menu items by id. see packages/node_modules/@node-red/editor-client/src/js/red.js:loadEditor for complete list
