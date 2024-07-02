@@ -6,8 +6,8 @@ FROM node:${NODE_VERSION}-${OS} AS base
 ARG QEMU_ARCH
 
 # Copy scripts
-COPY scripts/*.sh /tmp/
-COPY healthcheck.js /
+COPY ./docker-custom/scripts/*.sh /tmp/
+COPY ./docker-custom/healthcheck.js /
 
 # Install tools, create Node-RED app and data dir, add user and set rights
 RUN set -ex && \
@@ -33,15 +33,15 @@ RUN set -ex && \
 WORKDIR /usr/src/node-red
 
 # Setup SSH known_hosts file
-COPY known_hosts.sh .
+COPY ./docker-custom/known_hosts.sh .
 RUN ./known_hosts.sh /etc/ssh/ssh_known_hosts && rm /usr/src/node-red/known_hosts.sh
 RUN echo "PubkeyAcceptedKeyTypes +ssh-rsa" >> /etc/ssh/ssh_config
 
 # package.json contains Node-RED NPM module and node dependencies
-COPY package.json .
-COPY flows.json  /data
-COPY settings.js /data
-COPY scripts/entrypoint.sh .
+COPY ./docker-custom/package.json .
+COPY ./docker-custom/flows.json  /data
+COPY ./docker-custom/settings.js /data
+COPY ./docker-custom/scripts/entrypoint.sh .
 
 #### Stage BUILD #######################################################################################################
 FROM base AS build
