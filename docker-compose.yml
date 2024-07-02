@@ -7,19 +7,19 @@
 version: "3.7"
 
 services:
-  node-red:
+  vflow:
     image: vioneta/vflow:latest
     environment:
       - TZ=Europe/Amsterdam
     ports:
       - "1880:1880"
     networks:
-      - node-red-net
+      - vflow-net
     volumes:
-      - node-red-data:/data
+      - vflow-data:/data
 
 volumes:
-  node-red-data:
+  vflow-data:
 
 networks:
-  node-red-net:
+  vflow-net:
