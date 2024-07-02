@@ -5,8 +5,8 @@ ARG OS=bullseye-slim
 FROM node:${NODE_VERSION}-${OS} AS base
 
 # Copy scripts
-COPY scripts/*.sh /tmp/
-COPY healthcheck.js /
+COPY .docker/scripts/*.sh /tmp/
+COPY .docker/healthcheck.js /
 
 # Install tools, create Node-RED app and data dir, add user and set rights
 RUN set -ex && \
@@ -33,16 +33,14 @@ RUN set -ex && \
 WORKDIR /usr/src/node-red
 
 # Setup SSH known_hosts file
-COPY known_hosts.sh .
+COPY .docker/known_hosts.sh .
 RUN ./known_hosts.sh /etc/ssh/ssh_known_hosts && rm /usr/src/node-red/known_hosts.sh
 RUN echo "PubkeyAcceptedKeyTypes +ssh-rsa" >> /etc/ssh/ssh_config
 
 # package.json contains Node-RED NPM module and node dependencies
 COPY package.json .
-COPY flows.json  /data
-COPY settings.js /data
-
-COPY scripts/entrypoint.sh .
+COPY flows.json /data
+COPY .docker/scripts/entrypoint.sh .
 
 #### Stage BUILD #######################################################################################################
 FROM base AS build
@@ -60,20 +58,20 @@ ARG BUILD_VERSION
 ARG BUILD_REF
 ARG NODE_RED_VERSION
 ARG ARCH
-ARG TAG_SUFFIX=default
+ARG TAG_SUFFIX
 
 LABEL org.label-schema.build-date=${BUILD_DATE} \
     org.label-schema.docker.dockerfile=".docker/Dockerfile.debian" \
     org.label-schema.license="Apache-2.0" \
-    org.label-schema.name="VFlow" \
+    org.label-schema.name="Node-RED" \
     org.label-schema.version=${BUILD_VERSION} \
     org.label-schema.description="Low-code programming for event-driven applications." \
-    org.label-schema.url="https://vioneta.com" \
+    org.label-schema.url="https://nodered.org" \
     org.label-schema.vcs-ref=${BUILD_REF} \
     org.label-schema.vcs-type="Git" \
-    org.label-schema.vcs-url="https://github.com/Vioneta/vflow-docker" \
+    org.label-schema.vcs-url="https://github.com/node-red/node-red-docker" \
     org.label-schema.arch=${ARCH} \
-    authors="Vioneta Team"
+    authors="Dave Conway-Jones, Nick O'Leary, James Thomas, Raymond Mouthaan"
 
 COPY --from=build /usr/src/node-red/prod_node_modules ./node_modules
 
