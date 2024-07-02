@@ -24,14 +24,14 @@ module.exports = {
       // scripts: ["/absolute/path/to/custom/script/file", "/another/script/file"],
     },
     header: {
-      title: "",
+      title: "VFlow",
       image: "/data/logo.svg", // or null to remove image
       url: "http://www.vioneta.com", // optional url to make the header text/image a link to this url
     },
     deployButton: {
       type: "simple",
       label: "run",
-      icon: "/data/favicon.png", // or null to remove image
+      icon: "/data/logo.svg", // or null to remove image
     },
     menu: {
       // Hide unwanted menu items by id. see packages/node_modules/@node-red/editor-client/src/js/red.js:loadEditor for complete list
