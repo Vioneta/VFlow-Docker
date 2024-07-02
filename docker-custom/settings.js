@@ -19,19 +19,19 @@ module.exports = {
   editorTheme: {
     page: {
       title: "VFlow",
-      favicon: "./favicon.ico",
+      favicon: "/data/favicon.ico",
       // css: "/absolute/path/to/custom/css/file",
       // scripts: ["/absolute/path/to/custom/script/file", "/another/script/file"],
     },
     header: {
       title: "",
-      image: "./logo.svg", // or null to remove image
+      image: "/data/logo.svg", // or null to remove image
       url: "http://www.vioneta.com", // optional url to make the header text/image a link to this url
     },
     deployButton: {
       type: "simple",
       label: "run",
-      icon: "./favicon.png", // or null to remove image
+      icon: "/data/favicon.png", // or null to remove image
     },
     menu: {
       // Hide unwanted menu items by id. see packages/node_modules/@node-red/editor-client/src/js/red.js:loadEditor for complete list
@@ -63,7 +63,7 @@ module.exports = {
       // ],
     },
     projects: {
-      enabled: true, // Enable the projects feature
+      enabled: false, // Enable the projects feature
     },
     theme: "midnight-red", // Select a color theme for the editor. See https://github.com/node-red-contrib-themes/theme-collection for a collection of themes to choose from
     codeEditor: {
