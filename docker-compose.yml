@@ -8,7 +8,7 @@ version: "3.7"
 
 services:
   vflow:
-    image: vioneta/vflow:latest
+    image: vioneta/vflow:latest-debian
     environment:
       - TZ=Europe/Amsterdam
     ports:
