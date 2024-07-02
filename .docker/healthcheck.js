@@ -1,1 +1,0 @@
-../docker-custom/healthcheck.js
