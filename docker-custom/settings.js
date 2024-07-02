@@ -19,19 +19,19 @@ module.exports = {
   editorTheme: {
     page: {
       title: "VFlow",
-      // favicon: "/absolute/path/to/theme/icon",
+      favicon: "./favicon.ico",
       // css: "/absolute/path/to/custom/css/file",
       // scripts: ["/absolute/path/to/custom/script/file", "/another/script/file"],
     },
     header: {
-      title: "VFlow",
-      // image: "/absolute/path/to/header/image", // or null to remove image
-      url: "http://nodered.org", // optional url to make the header text/image a link to this url
+      title: "",
+      image: "./logo.svg", // or null to remove image
+      url: "http://www.vioneta.com", // optional url to make the header text/image a link to this url
     },
     deployButton: {
       type: "simple",
-      label: "Save",
-      // icon: "/absolute/path/to/deploy/button/image", // or null to remove image
+      label: "run",
+      icon: "./favicon.png", // or null to remove image
     },
     menu: {
       // Hide unwanted menu items by id. see packages/node_modules/@node-red/editor-client/src/js/red.js:loadEditor for complete list
@@ -40,7 +40,7 @@ module.exports = {
       "menu-item-keyboard-shortcuts": false,
       "menu-item-help": {
         label: "Alternative Help Link Text",
-        url: "http://example.com",
+        url: "http://www.vioneta.com",
       },
     },
     tours: false, // disable the Welcome Tour for new users
@@ -57,13 +57,13 @@ module.exports = {
         // Alternative palette manager catalogues
         "https://catalogue.nodered.org/catalogue.json",
       ],
-      theme: [
-        // Override node colours - rules test against category/type by RegExp.
-        { category: ".*", type: ".*", color: "#f0f" },
-      ],
+      // theme: [
+      //   // Override node colours - rules test against category/type by RegExp.
+      //   { category: ".*", type: ".*", color: "#f0f" },
+      // ],
     },
     projects: {
-      enabled: false, // Enable the projects feature
+      enabled: true, // Enable the projects feature
     },
     theme: "midnight-red", // Select a color theme for the editor. See https://github.com/node-red-contrib-themes/theme-collection for a collection of themes to choose from
     codeEditor: {
