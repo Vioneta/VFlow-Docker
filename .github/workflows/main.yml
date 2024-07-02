@@ -20,8 +20,8 @@ jobs:
     env:
       # Setting the defaults up front
       LATEST_NODE: 20
-      DEFAULT_IMAGE: nodered/node-red
-      DEV_IMAGE: nodered/node-red-dev
+      DEFAULT_IMAGE: vioneta/vflow
+      DEV_IMAGE: vioneta/vflow-dev
     runs-on: ubuntu-latest
 
     strategy:
