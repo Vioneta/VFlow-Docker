@@ -41,7 +41,6 @@ RUN echo "PubkeyAcceptedKeyTypes +ssh-rsa" >> /etc/ssh/ssh_config
 COPY ./docker-custom/package.json .
 COPY ./docker-custom/flows.json  /data
 COPY ./docker-custom/settings.js /data
-COPY ./docker-custom/*.png /data
 COPY ./docker-custom/*.svg /data
 COPY ./docker-custom/*.ico /data
 COPY ./docker-custom/scripts/entrypoint.sh .
