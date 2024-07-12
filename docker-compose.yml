@@ -16,10 +16,15 @@ services:
     networks:
       - vflow-net
     volumes:
-      - vflow-data:/data
+      - data:/data
 
 volumes:
-  vflow-data:
+  data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./data
 
 networks:
   vflow-net:
